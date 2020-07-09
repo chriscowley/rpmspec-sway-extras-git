@@ -2,7 +2,7 @@
 %define shorthash %(c=%{githash}; echo ${c:0:10})
 
 Name:     wdisplays
-Version:  1.0
+Version:  1.1
 Release:  0.%{releasenum}.git.%{shorthash}%{?dist}
 Summary:  GUI display configurator for wlroots compositors
 License:  MIT and GPLv3+ and CC0 and CC-BY-SA

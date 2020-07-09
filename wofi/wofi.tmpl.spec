@@ -1,6 +1,6 @@
 
 Name:		wofi
-Version:	1.1.1
+Version:	1.1.2
 # Release:	1%{?dist}
 Release:    0.%{releasenum}.hg.%{githash}%{?dist}
 Summary:	A window switcher, application launcher and dmenu replacement for wayland
@@ -8,7 +8,6 @@ Summary:	A window switcher, application launcher and dmenu replacement for wayla
 License:	GPLv3
 URL:		https://hg.sr.ht/~scoopta/wofi
 
-# Source0:	%{URL}/archive/v%{version}.tar.gz
 Source: %{url}/archive/%{githash}.tar.gz
 
 BuildRequires:	meson
@@ -29,7 +28,6 @@ Requires: %{name}%{?_isa} = %{version}-%{release}
 Files for development with %{name}.
 
 %prep
-#  %autosetup -n %{name}-v%{version}
 %autosetup -n %{name}-%{githash}
 
 %build
