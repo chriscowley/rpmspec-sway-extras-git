@@ -1,5 +1,5 @@
-%define githash 27f89bdcc32fe42effde28767e3cb33d5c6aaefb
-%define releasenum 8
+%define githash 759602af64e10948af9665813af05237e36ad845
+%define releasenum 9
 
 %define shorthash %(c=%{githash}; echo ${c:0:10})
 

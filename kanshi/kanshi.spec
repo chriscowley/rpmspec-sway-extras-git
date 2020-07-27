@@ -1,5 +1,5 @@
-%define githash 846b725637840fd41aaa252d457392758197e1d8
-%define releasenum 2
+%define githash dc5e556a3860d57c0c755d38478de50d0fff8ea5
+%define releasenum 3
 %define shorthash %(c=%{githash}; echo ${c:0:10})
 
 Name:           kanshi

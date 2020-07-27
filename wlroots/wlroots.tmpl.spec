@@ -3,10 +3,10 @@
 %define shorthash %(c=%{githash}; echo ${c:0:10})
 
 # Version of the .so library
-%global abi_ver 5
+%global abi_ver 6
 
 Name:           wlroots
-Version:        0.10.2
+Version:        0.11.1
 Release:        0.%{releasenum}.git.%{shorthash}%{?dist}
 Summary:        A modular Wayland compositor library
 

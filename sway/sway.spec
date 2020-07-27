@@ -1,10 +1,10 @@
-%define githash ea3ba203cc65671d9bf9da5ddbc698b18ed7685c
-%define releasenum 5
+%define githash 3520fd2c192f087dc6f3525b0d7d15c2790103b8
+%define releasenum 8
 
 %define shorthash %(c=%{githash}; echo ${c:0:10})
 
 Name:           sway
-Version:        1.4.1
+Version:        1.5.1
 Release:        0.%{releasenum}.git.%{shorthash}%{?dist}
 Summary:        i3-compatible window manager for Wayland
 License:        MIT
