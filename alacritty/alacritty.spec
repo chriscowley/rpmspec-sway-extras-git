@@ -1,5 +1,5 @@
-%define githash b7faa9f4378cf922c44f53a8003731fb0de13670
-%define releasenum 12
+%define githash 56cff184868f3bb3bb45082cac79fec296e4a48b
+%define releasenum 16
 
 %define shorthash %(c=%{githash}; echo ${c:0:10})
 
@@ -15,6 +15,9 @@ Source:        %{url}/archive/%{githash}/%{name}-%{githash}.tar.gz
 BuildRequires: rust >= 1.41.0
 BuildRequires: cargo
 BuildRequires: cmake
+BuildRequires: gcc-c++
+BuildRequires: gcc
+BuildRequires: ncurses
 BuildRequires: freetype-devel
 BuildRequires: fontconfig-devel
 BuildRequires: libxcb-devel

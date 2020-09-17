@@ -1,5 +1,5 @@
-%define githash 6d0ee53e1a3d270b8b783ffbc50b1da621ef7880
-%define releasenum 8
+%define githash 87836dcb55e15cd1f19f5549d4fcd666135dba15
+%define releasenum 12
 
 
 %define shorthash %(c=%{githash}; echo ${c:0:10})
@@ -88,6 +88,9 @@ MESON_OPTIONS=(
 
     # build with systemd support
     -Dlogind-provider=systemd
+
+    # disable libseat
+    -Dlibseat=disabled
 
 %ifarch s390x
     # Disable -Werror on s390x: https://github.com/swaywm/wlroots/issues/2018

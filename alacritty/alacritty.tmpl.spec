@@ -13,6 +13,9 @@ Source:        %{url}/archive/%{githash}/%{name}-%{githash}.tar.gz
 BuildRequires: rust >= 1.41.0
 BuildRequires: cargo
 BuildRequires: cmake
+BuildRequires: gcc-c++
+BuildRequires: gcc
+BuildRequires: ncurses
 BuildRequires: freetype-devel
 BuildRequires: fontconfig-devel
 BuildRequires: libxcb-devel

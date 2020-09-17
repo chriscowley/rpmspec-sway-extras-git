@@ -1,5 +1,5 @@
-%define githash e27b2e701bac
-%define releasenum 4
+%define githash ac8dc17ab751
+%define releasenum 7
 
 Name:		wofi
 Version:	1.1.2
@@ -56,6 +56,7 @@ Files for development with %{name}.
 %{_mandir}/man3/wofi-map.3*
 %{_mandir}/man3/wofi-utils.3*
 %{_mandir}/man3/wofi.3*
+%{_mandir}/man3/wofi-widget-builder.3*
 
 %changelog
 * Mon Mar  9 2020 Christian Kellner <ckellner@redhat.com> - 1.1.1-1

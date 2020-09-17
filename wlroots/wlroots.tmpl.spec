@@ -87,6 +87,9 @@ MESON_OPTIONS=(
     # build with systemd support
     -Dlogind-provider=systemd
 
+    # disable libseat
+    -Dlibseat=disabled
+
 %ifarch s390x
     # Disable -Werror on s390x: https://github.com/swaywm/wlroots/issues/2018
     -Dwerror=false
