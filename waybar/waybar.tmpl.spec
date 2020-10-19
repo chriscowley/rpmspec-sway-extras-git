@@ -46,7 +46,10 @@ Recommends:     fontawesome-fonts
 %autosetup -n Waybar-%{githash}
 
 %build
-%meson
+MESON_OPTIONS=(
+    -Dsndio=disabled
+)
+%{meson} "${MESON_OPTIONS[@]}"
 %meson_build
 
 %install

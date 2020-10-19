@@ -1,5 +1,5 @@
-%define githash dc625490f8b7ea5d08d74468e3733ffce66cc3c1
-%define releasenum 15
+%define githash f151d435a872777376796b48d6997b78afede474
+%define releasenum 19
 
 %define shorthash %(c=%{githash}; echo ${c:0:10})
 
@@ -48,7 +48,10 @@ Recommends:     fontawesome-fonts
 %autosetup -n Waybar-%{githash}
 
 %build
-%meson
+MESON_OPTIONS=(
+    -Dsndio=disabled
+)
+%{meson} "${MESON_OPTIONS[@]}"
 %meson_build
 
 %install
