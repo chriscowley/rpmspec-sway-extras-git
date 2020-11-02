@@ -1,9 +1,9 @@
-%define githash acfad026c5500f15a224021cf1a56e5897e64190
-%define releasenum 5
+%define githash 9731ff9c7983d31c11d813fa66d14d0ecb353323
+%define releasenum 6
 %define shorthash %(c=%{githash}; echo ${c:0:10})
 
 Name:           kanshi
-Version:        1.1.0
+Version:        1.1.1
 Release:        0.%{releasenum}.git.%{shorthash}%{?dist}
 Summary:        Highly customizable Wayland bar for Sway and Wlroots based compositors
 # MIT for main package, Boost for bundled clara.hpp

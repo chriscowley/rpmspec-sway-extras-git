@@ -1,0 +1,4 @@
+*-upstream
+copr-build
+*.tar.*
+
