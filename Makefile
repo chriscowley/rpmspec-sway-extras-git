@@ -4,7 +4,12 @@ JOBS?=32
 all: 
 	@$(MAKE) -j$(JOBS) pkgs
 
-.PHONY: all pkgs $(PKGS)
+update:
+	$(MAKE) -j$(JOBS) pkgs
+	git commit -am 'version bump'
+	git push
+
+.PHONY: all update pkgs $(PKGS)
 
 pkgs: $(PKGS)
 
