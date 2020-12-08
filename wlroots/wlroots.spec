@@ -1,14 +1,14 @@
-%define githash 0e927533b007959a13f81107babc00fe5272871b
-%define releasenum 19
+%define githash e69bbfd0d6a654a0421793bf10cb3cab15e13273
+%define releasenum 20
 
 
 %define shorthash %(c=%{githash}; echo ${c:0:10})
 
 # Version of the .so library
-%global abi_ver 6
+%global abi_ver 7
 
 Name:           wlroots
-Version:        0.11.1
+Version:        0.12.1
 Release:        0.%{releasenum}.git.%{shorthash}%{?dist}
 Summary:        A modular Wayland compositor library
 
