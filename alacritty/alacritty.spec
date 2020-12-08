@@ -1,10 +1,10 @@
-%define githash de9ed259667588285891eda1665cd3edefcd3297
-%define releasenum 24
+%define githash 9e71002e40d5487c6fa2571a3a3c4f5c8f679334
+%define releasenum 26
 
 %define shorthash %(c=%{githash}; echo ${c:0:10})
 
 Name:          alacritty
-Version:       0.5.0
+Version:       0.6.1
 Release:       0.%{releasenum}.git.%{shorthash}%{?dist}
 Summary:       A cross-platform, GPU enhanced terminal emulator
 License:       ASL 2.0
@@ -12,17 +12,16 @@ URL:           https://github.com/alacritty/alacritty
 VCS:           https://github.com/alacritty/alacritty.git
 Source:        %{url}/archive/%{githash}/%{name}-%{githash}.tar.gz
 
-BuildRequires: rust >= 1.41.0
+BuildRequires: rust >= 1.43.0
 BuildRequires: cargo
 BuildRequires: cmake
 BuildRequires: gcc-c++
-BuildRequires: gcc
-BuildRequires: ncurses
+BuildRequires: python3
 BuildRequires: freetype-devel
 BuildRequires: fontconfig-devel
 BuildRequires: libxcb-devel
 BuildRequires: desktop-file-utils
-BuildRequires: python36
+BuildRequires: ncurses
 
 %description
 Alacritty is a terminal emulator with a strong focus on simplicity and
@@ -42,7 +41,7 @@ install -p -D -m755 target/release/alacritty         %{buildroot}%{_bindir}/alac
 install -p -D -m644 extra/linux/Alacritty.desktop    %{buildroot}%{_datadir}/applications/Alacritty.desktop
 install -p -D -m644 extra/logo/alacritty-term.svg    %{buildroot}%{_datadir}/pixmaps/Alacritty.svg
 install -p -D -m644 alacritty.yml                    %{buildroot}%{_datadir}/alacritty/alacritty.yml
-tic     -xe alacritty,alacritty-direct \
+tic     -xe alacritty-direct \
                     extra/alacritty.info       -o    %{buildroot}%{_datadir}/terminfo
 install -p -D -m644 extra/completions/alacritty.bash %{buildroot}%{_datadir}/bash-completion/completions/alacritty
 install -p -D -m644 extra/completions/_alacritty     %{buildroot}%{_datadir}/zsh/site-functions/_alacritty
@@ -57,7 +56,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/Alacritty.desktop
 %{_datadir}/applications/Alacritty.desktop
 %{_datadir}/pixmaps/Alacritty.svg
 %{_datadir}/alacritty/alacritty.yml
-%{_datadir}/terminfo/a/alacritty*
+%{_datadir}/terminfo/a/alacritty-direct
 %{_datadir}/bash-completion/completions/alacritty
 %{_datadir}/zsh/site-functions/_alacritty
 %{_datadir}/fish/vendor_completions.d/alacritty.fish
