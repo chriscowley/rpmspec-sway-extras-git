@@ -2,7 +2,7 @@
 %define shorthash %(c=%{githash}; echo ${c:0:10})
 
 Name:           sway
-Version:        1.5.1
+Version:        1.5.2
 Release:        0.%{releasenum}.git.%{shorthash}%{?dist}
 Summary:        i3-compatible window manager for Wayland
 License:        MIT

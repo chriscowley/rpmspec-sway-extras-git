@@ -2,7 +2,7 @@
 %define releasenum 9
 
 Name:		wofi
-Version:	1.1.2
+Version:	1.2.4
 # Release:	1%{?dist}
 Release:    0.%{releasenum}.hg.%{githash}%{?dist}
 Summary:	A window switcher, application launcher and dmenu replacement for wayland
