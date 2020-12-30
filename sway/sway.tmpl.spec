@@ -20,6 +20,7 @@ BuildRequires:  make
 BuildRequires:  meson >= 0.48.0
 BuildRequires:  pam-devel
 BuildRequires:  pkgconfig(cairo)
+BuildRequires:  pkgconfig(systemd)
 BuildRequires:  pkgconfig(dbus-1)
 BuildRequires:  pkgconfig(gdk-pixbuf-2.0)
 BuildRequires:  pkgconfig(json-c) >= 0.13
@@ -32,7 +33,7 @@ BuildRequires:  pkgconfig(wayland-cursor)
 BuildRequires:  pkgconfig(wayland-egl)
 BuildRequires:  pkgconfig(wayland-server)
 BuildRequires:  pkgconfig(wayland-protocols) >= 1.14
-BuildRequires:  pkgconfig(wlroots) >= 0.10.0
+BuildRequires:  pkgconfig(wlroots) >= 0.12.0
 BuildRequires:  wayland-devel
 BuildRequires:  libevdev-devel
 BuildRequires:  git
@@ -53,8 +54,6 @@ Recommends:     mesa-dri-drivers
 Requires:       xorg-x11-server-Xwayland
 # Sway binds the terminal shortcut to one specific terminal. In our case urxvtc-ml
 Recommends:     rxvt-unicode-256color-ml
-# grim is the recommended way to take screenshots on sway 1.0+
-Recommends:     grim
 
 %description
 Sway is a tiling window manager supporting Wayland compositor protocol and
@@ -64,7 +63,7 @@ i3-compatible configuration.
 %autosetup -n sway-%{githash}
 
 %build
-%meson
+%meson -Dsd-bus-provider=libsystemd
 %meson_build
 
 %install
