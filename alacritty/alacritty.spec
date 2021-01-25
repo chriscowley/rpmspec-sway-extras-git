@@ -1,10 +1,10 @@
-%define githash 65f6e22bb428e1abc132dd43a41ebbede83f6bb8
-%define releasenum 30
+%define githash 530de00049c2afcc562d36ccdb3e6afa2fe396a5
+%define releasenum 33
 
 %define shorthash %(c=%{githash}; echo ${c:0:10})
 
 Name:          alacritty
-Version:       0.6.1
+Version:       0.7.2
 Release:       0.%{releasenum}.git.%{shorthash}%{?dist}
 Summary:       A cross-platform, GPU enhanced terminal emulator
 License:       ASL 2.0

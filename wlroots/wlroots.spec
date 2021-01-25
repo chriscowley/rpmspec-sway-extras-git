@@ -1,5 +1,5 @@
-%define githash bec1e6b149eb6a5eb470dd4eee6ba0aa57f1b590
-%define releasenum 25
+%define githash 1b8330d1f8b881a4ed49c3c2fca0cc2667932e2d
+%define releasenum 29
 
 
 %define shorthash %(c=%{githash}; echo ${c:0:10})
@@ -39,6 +39,7 @@ BuildRequires:  meson >= 0.51.2
 BuildRequires:  pkgconfig(egl) mesa-libEGL-devel
 BuildRequires:  pkgconfig(gbm) >= 17.1.0
 BuildRequires:  pkgconfig(glesv2)
+BuildRequires:  pkgconfig(uuid)
 BuildRequires:  pkgconfig(libcap)
 BuildRequires:  pkgconfig(libdrm) >= 2.4.95
 BuildRequires:  pkgconfig(libinput) >= 1.9.0

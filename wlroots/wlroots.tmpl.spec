@@ -37,6 +37,7 @@ BuildRequires:  meson >= 0.51.2
 BuildRequires:  pkgconfig(egl) mesa-libEGL-devel
 BuildRequires:  pkgconfig(gbm) >= 17.1.0
 BuildRequires:  pkgconfig(glesv2)
+BuildRequires:  pkgconfig(uuid)
 BuildRequires:  pkgconfig(libcap)
 BuildRequires:  pkgconfig(libdrm) >= 2.4.95
 BuildRequires:  pkgconfig(libinput) >= 1.9.0
