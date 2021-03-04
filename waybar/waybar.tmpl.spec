@@ -1,5 +1,4 @@
 
-%undefine _disable_source_fetch
 %define shorthash %(c=%{githash}; echo ${c:0:10})
 
 Name:           waybar
