@@ -1,5 +1,5 @@
 %define githash dd7e1e22ee04cf37ecc8b48cdb0c103de18e8761
-%define releasenum 1
+%define releasenum 2
 
 %define shorthash %(c=%{githash}; echo ${c:0:10})
 
@@ -11,6 +11,7 @@ License:  MIT and GPLv3+ and CC0 and CC-BY-SA
 URL:      https://github.com/cyclopsian/wdisplays
 
 Source: %{url}/archive/%{githash}/%{name}-%{githash}.tar.gz
+Patch0: https://github.com/emersion/wdisplays/commit/5198a9c94b40ff157c284df413be5402f1b75118.patch
 
 BuildRequires: desktop-file-utils
 BuildRequires: gcc
@@ -18,6 +19,7 @@ BuildRequires: gtk3-devel
 BuildRequires: meson
 BuildRequires: wayland-devel
 BuildRequires: wlroots-devel
+BuildRequires: git
 
 Conflicts: wlroots < 0.7.0
 Requires:  hicolor-icon-theme
@@ -32,7 +34,7 @@ of this project is to allow precise adjustment of display settings in
 kiosks, digital signage, and other elaborate multi-monitor setups.
 
 %prep
-%autosetup -n %{name}-%{githash}
+%autosetup -n %{name}-%{githash} -S git
 
 %build
 %meson

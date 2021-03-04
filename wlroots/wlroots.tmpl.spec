@@ -24,34 +24,34 @@ Source0:        %{url}/archive/%{githash}/%{name}-%{githash}.tar.gz
 # this file is a modification of examples/meson.build so as to:
 # - make it self-contained
 # - only has targets for examples known to compile well (cf. "examples) global)
-#Source1:        examples.meson.build
-
-
+%Source3:        examples.meson.build
 
 BuildRequires:  gcc
-BuildRequires:  meson >= 0.51.2
+BuildRequires:  meson >= 0.56.0
 # FIXME: wlroots require `pkgconfig(egl)`, but assumes mesa provides it
 # (and uses it's extension header `<EGL/eglmesaext.h>).
 # Upstream is working on not needing that: https://github.com/swaywm/wlroots/issues/1899
 # Until it is fixed, pull mesa-libEGL-devel manually
-BuildRequires:  pkgconfig(egl) mesa-libEGL-devel
+BuildRequires:  (mesa-libEGL-devel if libglvnd-devel < 1:1.3.2)
+BuildRequires:  pkgconfig(egl)
 BuildRequires:  pkgconfig(gbm) >= 17.1.0
 BuildRequires:  pkgconfig(glesv2)
-BuildRequires:  pkgconfig(uuid)
-BuildRequires:  pkgconfig(libcap)
 BuildRequires:  pkgconfig(libdrm) >= 2.4.95
 BuildRequires:  pkgconfig(libinput) >= 1.9.0
+BuildRequires:  pkgconfig(libsystemd) >= 237
 BuildRequires:  pkgconfig(libudev)
 BuildRequires:  pkgconfig(pixman-1)
 BuildRequires:  pkgconfig(wayland-client)
 BuildRequires:  pkgconfig(wayland-egl)
 BuildRequires:  pkgconfig(wayland-protocols) >= 1.17
-BuildRequires:  pkgconfig(wayland-server) >= 1.16
+BuildRequires:  pkgconfig(wayland-scanner)
+BuildRequires:  pkgconfig(wayland-server) >= 1.18
+BuildRequires:  pkgconfig(x11-xcb)
+BuildRequires:  pkgconfig(xcb)
 BuildRequires:  pkgconfig(xcb-icccm)
 BuildRequires:  pkgconfig(xkbcommon)
-BuildRequires:  pkgconfig(systemd)
 
-# only select examples are supported for being readily compilable (see SOURCE1)
+# only select examples are supported for being readily compilable (see SOURCE3)
 %global examples \
     cat multi-pointer output-layout pointer rotation screencopy simple tablet touch
 
@@ -63,12 +63,13 @@ BuildRequires:  pkgconfig(systemd)
 Summary:        Development files for %{name}
 Requires:       %{name}%{?_isa} == %{version}-%{release}
 # FIXME: See the rationale above for this require; remove when no longer needed
-Requires:       mesa-libEGL-devel
+Requires:       (mesa-libEGL-devel if libglvnd-devel < 1:1.3.2)
 # not required per se, so not picked up automatically by RPM
 Recommends:     pkgconfig(xcb-icccm)
+Recommends:     xcb-util-renderutil
 # for examples
 Suggests:       gcc
-Suggests:       meson >= 0.48.0
+Suggests:       meson >= 0.56.0
 Suggests:       pkgconfig(libpng)
 
 %description    devel
@@ -84,12 +85,9 @@ MESON_OPTIONS=(
     # Disable options requiring extra/unpackaged dependencies
     -Dexamples=false
     -Dxcb-errors=disabled
-
-    # build with systemd support
-    -Dlogind-provider=systemd
-
-    # disable libseat
     -Dlibseat=disabled
+    # select systemd logind provider
+    -Dlogind-provider=systemd
 
 %ifarch s390x
     # Disable -Werror on s390x: https://github.com/swaywm/wlroots/issues/2018
@@ -130,6 +128,18 @@ done
 
 
 %changelog
+* Wed Jan 27 2021 Fedora Release Engineering <releng@fedoraproject.org> - 0.12.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_34_Mass_Rebuild
+
+* Sun Nov 08 2020 Aleksei Bavshin <alebastr@fedoraproject.org> - 0.12.0-1
+- Updated to version 0.12.0
+
+* Wed Jul 29 2020 Fedora Release Engineering <releng@fedoraproject.org> - 0.11.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
+
+* Wed Jul 15 2020 Aleksei Bavshin <alebastr89@gmail.com> - 0.11.0-1
+- Updated to version 0.11.0
+
 * Sat May 09 2020 Till Hofmann <thofmann@fedoraproject.org> - 0.10.1-2
 - Add patch from upstream #2167 to fix #1829212
 

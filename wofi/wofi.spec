@@ -1,5 +1,5 @@
-%define githash cfee43dd1616
-%define releasenum 10
+%define githash bae1c99a465f
+%define releasenum 12
 
 Name:		wofi
 Version:	1.2.4
