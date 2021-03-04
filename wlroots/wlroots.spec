@@ -26,7 +26,7 @@ Source0:        %{url}/archive/%{githash}/%{name}-%{githash}.tar.gz
 # this file is a modification of examples/meson.build so as to:
 # - make it self-contained
 # - only has targets for examples known to compile well (cf. "examples) global)
-%Source3:        examples.meson.build
+Source3:        examples.meson.build
 
 BuildRequires:  gcc
 BuildRequires:  meson >= 0.56.0
