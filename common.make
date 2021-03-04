@@ -1,7 +1,3 @@
-copr-build: $(PROJECT).spec
-	cp release copr-build
-	copr-cli build sway-extras-git $(PROJECT).spec
-
 $(PROJECT).spec: commithash
 	echo "%define githash $$(cat commithash)" > $(PROJECT).spec
 	echo "%define releasenum $$(cat release)" >> $(PROJECT).spec
@@ -12,5 +8,10 @@ commithash:
 
 release:
 	rel=`cat release`; echo "$$rel+1" | bc > release
+
+copr-build: $(PROJECT).spec
+	cp release copr-build
+	copr-cli build sway-extras-git $(PROJECT).spec
+
 
 .PHONY: commithash release
