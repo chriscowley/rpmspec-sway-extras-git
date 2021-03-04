@@ -1,6 +1,7 @@
 %define githash cb1c7ea12cdda26983463e7e3ab0cc0d08f674ff
 %define releasenum 32
 
+%undefine _disable_source_fetch
 %define shorthash %(c=%{githash}; echo ${c:0:10})
 
 Name:           waybar
