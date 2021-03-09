@@ -1,4 +1,4 @@
-%define githash 837605d68dc6112682bce0f133e3ba0b4dcfd440
+%define githash 4e02a598a33fb9b306a1ab220438adf82cac07a6
 %define releasenum 30
 
 %define shorthash %(c=%{githash}; echo ${c:0:10})
@@ -19,7 +19,7 @@ BuildRequires:  pkgconfig(egl) mesa-libEGL-devel
 BuildRequires:  cmake
 BuildRequires:  gcc-c++
 BuildRequires:  make
-BuildRequires:  meson >= 0.48.0
+BuildRequires:  meson >= 0.54.0
 BuildRequires:  pam-devel
 BuildRequires:  pkgconfig(cairo)
 BuildRequires:  pkgconfig(systemd)

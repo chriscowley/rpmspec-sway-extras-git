@@ -17,7 +17,7 @@ BuildRequires:  pkgconfig(egl) mesa-libEGL-devel
 BuildRequires:  cmake
 BuildRequires:  gcc-c++
 BuildRequires:  make
-BuildRequires:  meson >= 0.48.0
+BuildRequires:  meson >= 0.54.0
 BuildRequires:  pam-devel
 BuildRequires:  pkgconfig(cairo)
 BuildRequires:  pkgconfig(systemd)
