@@ -52,6 +52,8 @@ BuildRequires:  pkgconfig(x11-xcb)
 BuildRequires:  pkgconfig(xcb)
 BuildRequires:  pkgconfig(xcb-icccm)
 BuildRequires:  pkgconfig(xkbcommon)
+BuildRequires:  pkgconfig(uuid)
+BuildRequires:  pkgconfig(libcap)
 
 # only select examples are supported for being readily compilable (see SOURCE3)
 %global examples \
