@@ -6,10 +6,10 @@ Version:  1.1
 Release:  0.%{releasenum}.git.%{shorthash}%{?dist}
 Summary:  GUI display configurator for wlroots compositors
 License:  MIT and GPLv3+ and CC0 and CC-BY-SA
-URL:      https://github.com/cyclopsian/wdisplays
+URL:      https://github.com/luispabon/wdisplays
 
 Source: %{url}/archive/%{githash}/%{name}-%{githash}.tar.gz
-Patch0: https://github.com/emersion/wdisplays/commit/5198a9c94b40ff157c284df413be5402f1b75118.patch
+#Patch0: https://github.com/emersion/wdisplays/commit/5198a9c94b40ff157c284df413be5402f1b75118.patch
 
 BuildRequires: desktop-file-utils
 BuildRequires: gcc

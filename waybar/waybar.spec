@@ -1,10 +1,10 @@
-%define githash c21dc681c95361bcdbc1b4b998d2b2b9370f337c
-%define releasenum 33
+%define githash 729a4fe37e899143cf9ae2e3bf88c5d574714489
+%define releasenum 34
 
 %define shorthash %(c=%{githash}; echo ${c:0:10})
 
 Name:           waybar
-Version:        0.9.6
+Version:        0.9.7
 Release:        0.%{releasenum}.git.%{shorthash}%{?dist}
 Summary:        Highly customizable Wayland bar for Sway and Wlroots based compositors
 # MIT for main package, Boost for bundled clara.hpp
