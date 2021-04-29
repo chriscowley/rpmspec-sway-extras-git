@@ -3,10 +3,10 @@
 %define shorthash %(c=%{githash}; echo ${c:0:10})
 
 # Version of the .so library
-%global abi_ver 7
+%global abi_ver 8
 
 Name:           wlroots
-Version:        0.12.1
+Version:        0.13.1
 Release:        0.%{releasenum}.git.%{shorthash}%{?dist}
 Summary:        A modular Wayland compositor library
 
@@ -27,32 +27,28 @@ Source0:        %{url}/archive/%{githash}/%{name}-%{githash}.tar.gz
 Source3:        examples.meson.build
 
 BuildRequires:  gcc
+BuildRequires:  gnupg2
 BuildRequires:  meson >= 0.56.0
-# FIXME: wlroots require `pkgconfig(egl)`, but assumes mesa provides it
-# (and uses it's extension header `<EGL/eglmesaext.h>).
-# Upstream is working on not needing that: https://github.com/swaywm/wlroots/issues/1899
-# Until it is fixed, pull mesa-libEGL-devel manually
-BuildRequires:  (mesa-libEGL-devel if libglvnd-devel < 1:1.3.2)
 BuildRequires:  pkgconfig(egl)
 BuildRequires:  pkgconfig(gbm) >= 17.1.0
 BuildRequires:  pkgconfig(glesv2)
 BuildRequires:  pkgconfig(libdrm) >= 2.4.95
-BuildRequires:  pkgconfig(libinput) >= 1.9.0
+BuildRequires:  pkgconfig(libinput) >= 1.14.0
 BuildRequires:  pkgconfig(libsystemd) >= 237
 BuildRequires:  pkgconfig(libudev)
 BuildRequires:  pkgconfig(pixman-1)
+BuildRequires:  pkgconfig(uuid)
 BuildRequires:  pkgconfig(wayland-client)
 BuildRequires:  pkgconfig(wayland-egl)
 BuildRequires:  pkgconfig(wayland-protocols) >= 1.17
 BuildRequires:  pkgconfig(wayland-scanner)
-BuildRequires:  pkgconfig(wayland-server) >= 1.18
+BuildRequires:  pkgconfig(wayland-server) >= 1.19
 BuildRequires:  pkgconfig(x11-xcb)
 BuildRequires:  pkgconfig(xcb)
 BuildRequires:  pkgconfig(xcb-icccm)
-BuildRequires:  pkgconfig(xkbcommon)
-BuildRequires:  pkgconfig(uuid)
-BuildRequires:  pkgconfig(libcap)
 BuildRequires:  pkgconfig(xcb-renderutil)
+BuildRequires:  pkgconfig(xkbcommon)
+BuildRequires:  pkgconfig(xwayland)
 
 # only select examples are supported for being readily compilable (see SOURCE3)
 %global examples \
@@ -65,14 +61,11 @@ BuildRequires:  pkgconfig(xcb-renderutil)
 %package        devel
 Summary:        Development files for %{name}
 Requires:       %{name}%{?_isa} == %{version}-%{release}
-# FIXME: See the rationale above for this require; remove when no longer needed
-Requires:       (mesa-libEGL-devel if libglvnd-devel < 1:1.3.2)
 # not required per se, so not picked up automatically by RPM
 Recommends:     pkgconfig(xcb-icccm)
-Recommends:     xcb-util-renderutil
 # for examples
 Suggests:       gcc
-Suggests:       meson >= 0.56.0
+Suggests:       meson >= 0.51.2
 Suggests:       pkgconfig(libpng)
 
 %description    devel
@@ -131,6 +124,9 @@ done
 
 
 %changelog
+* Wed Apr 07 2021 Aleksei Bavshin <alebastr@fedoraproject.org> - 0.13.0-1
+- Update to 0.13.0 (#1947218)
+
 * Wed Jan 27 2021 Fedora Release Engineering <releng@fedoraproject.org> - 0.12.0-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_34_Mass_Rebuild
 
