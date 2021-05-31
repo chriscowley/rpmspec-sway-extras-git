@@ -11,7 +11,6 @@ License:       ASL 2.0
 URL:           https://github.com/alacritty/alacritty
 VCS:           https://github.com/alacritty/alacritty.git
 Source:        %{url}/archive/%{githash}/%{name}-%{githash}.tar.gz
-Conflicts:     alacritty
 
 BuildRequires: rust >= 1.43.0
 BuildRequires: cargo
